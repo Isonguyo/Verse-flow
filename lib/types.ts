@@ -7,22 +7,13 @@ export interface BibleVerse {
   version: 'KJV' | 'NIV' | 'NKJV'
 }
 
-export interface SongSection {
-  id: string
-  type: 'verse' | 'chorus' | 'bridge' | 'pre-chorus' | 'outro' | 'intro'
-  lyrics: string
-  order: number
-}
-
 export interface Song {
   id: string
   title: string
   artist: string
   lyrics: string
   verses: string[]
-  sections?: SongSection[]
   bpm?: number
-  duration?: number
 }
 
 export interface MediaItem {
@@ -33,70 +24,25 @@ export interface MediaItem {
   duration?: number
 }
 
-export interface Theme {
-  id: string
-  name: string
-  fontFamily: string
-  fontSize: number
-  fontWeight: 'normal' | 'bold' | '700' | '600'
-  textAlignment: 'left' | 'center' | 'right'
-  backgroundColor: string
-  textColor: string
-  accentColor: string
-  backgroundStyle: 'solid' | 'gradient' | 'image' | 'video'
-  backgroundValue?: string
-  transitionType: 'fade' | 'slide' | 'zoom' | 'none'
-  transitionDuration: number
-  isPrebuilt?: boolean
-}
-
 export interface Slide {
   id: string
-  type: 'verse' | 'song' | 'media' | 'blank' | 'logo'
-  content: BibleVerse | Song | MediaItem | null
+  type: 'verse' | 'song' | 'media'
+  content: BibleVerse | Song | MediaItem
   duration?: number
   addedAt: Date
-  themeOverride?: Partial<Theme>
-  notes?: string
-}
-
-export interface ServicePlanItem {
-  id: string
-  type: 'prayer' | 'song' | 'sermon' | 'offering' | 'media' | 'announcement'
-  title: string
-  duration: number
-  slides?: Slide[]
-  order: number
-}
-
-export interface ServicePlan {
-  id: string
-  name: string
-  date: Date
-  items: ServicePlanItem[]
-  createdAt: Date
-  updatedAt: Date
 }
 
 export interface UserSettings {
   bibleVersion: 'KJV' | 'NIV' | 'NKJV'
-  themeId: string
+  theme: 'light' | 'dark'
+  fontSize: 'small' | 'medium' | 'large'
+  backgroundColor: string
+  textColor: string
   premiumEnabled: boolean
   aiSuggestionsEnabled: boolean
   autoAdvanceSlides: boolean
   slideDisplayTime: number
   dualScreenMode: boolean
-  stageModeEnabled: boolean
-  keyboardShortcutsEnabled: boolean
-  countdownEnabled: boolean
-}
-
-export interface AISuggestion {
-  id: string
-  type: 'verse' | 'song' | 'theme'
-  title: string
-  description: string
-  relevanceScore: number
 }
 
 export interface AppContextType {
