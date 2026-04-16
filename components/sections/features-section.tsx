@@ -1,11 +1,11 @@
 'use client'
 
 import { Card } from '@/components/ui/card'
-import { Bible, Music, Image as ImageIcon, Wand2, Smartphone, Share2 } from 'lucide-react'
+import { BookOpen, Music, Image as ImageIcon, Wand2, Smartphone, Share2 } from 'lucide-react'
 
 const features = [
   {
-    icon: Bible,
+    icon: BookOpen,
     title: 'Bible Verse Projection',
     description: 'Project Bible verses in multiple translations with beautiful, readable typography.',
   },
